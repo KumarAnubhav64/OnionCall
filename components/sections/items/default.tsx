@@ -28,48 +28,48 @@ interface ItemsProps {
 const DEFAULT_ITEMS: ItemProps[] = [
   {
     title: "Tor-Powered Privacy",
-    description: "All traffic routes through the Tor network. No IP leaks, no metadata, no trackers.",
+    description: "Your connection snakes through three Tor relays so your IP stays hidden. Nobody — not even the person you're talking to — can see where you are.",
     icon: <Shield className="size-5 stroke-1" />,
   },
   {
     title: "End-to-End Encryption",
-    description: "Every voice packet is encrypted with NaCl secretbox. Only your peer can decrypt.",
+    description: "Every syllable is scrambled before it leaves your device. Your peer's machine unscrambles it. Nobody in between — not your ISP, not Tor relays — hears a thing.",
     icon: <Lock className="size-5 stroke-1" />,
   },
   {
     title: "Push-to-Talk Audio",
-    description: "Walkie-talkie style PTT with Opus codec. Hold to talk, release to listen.",
+    description: "Works like a walkie-talkie. Hold a button to speak, let go to listen. No awkward half-duplex delays — the Opus codec keeps voice crisp even on slow connections.",
     icon: <Radio className="size-5 stroke-1" />,
   },
   {
-    title: "P2P, No Servers",
-    description: "Direct peer-to-peer connections over Tor hidden services. No central server, no logs.",
+    title: "True Peer-to-Peer",
+    description: "The two devices talk directly through Tor hidden services. There's no central server to log your calls, no company to shut down, and no subscription to cancel.",
     icon: <Wifi className="size-5 stroke-1" />,
   },
   {
-    title: "Tor Snowflake Support",
-    description: "Built-in pluggable transport to bypass censorship and firewalls in restricted regions.",
+    title: "Bypass Censorship",
+    description: "Snowflake proxies your connection through volunteers' browsers around the world. It slips past firewalls in countries that block Tor, without needing a VPN.",
     icon: <Signal className="size-5 stroke-1" />,
   },
   {
-    title: "Text Messaging",
-    description: "Send encrypted text messages alongside voice. Perfect for quick replies.",
+    title: "Chat Alongside Voice",
+    description: "Drop a link or a quick note without interrupting the call. Messages are encrypted with the same key as your voice — everything stays private together.",
     icon: <MessageSquare className="size-5 stroke-1" />,
   },
   {
-    title: "Self-Hosted Relay",
-    description: "Optionally run a relay to help others connect when direct P2P isn't possible.",
+    title: "Run a Relay (Optional)",
+    description: "If direct connections won't work, you can host a simple bridge that forwards traffic. The relay never sees your encryption keys — it just passes bytes along.",
     icon: <Server className="size-5 stroke-1" />,
   },
   {
     title: "Cross-Platform",
-    description: "Works on Linux and macOS. Run it on a server, laptop, or Raspberry Pi.",
+    description: "Runs on Linux and macOS today. Stick it on a laptop, a Raspberry Pi in a closet, or a cloud server — if it can run Go and Tor, it can run OnionPhone.",
     icon: <Globe className="size-5 stroke-1" />,
   },
 ];
 
 export default function Items({
-  title = "Everything you need for private communication.",
+  title = "Built for conversations that stay between you.",
   items = DEFAULT_ITEMS,
   className,
 }: ItemsProps) {

@@ -41,18 +41,18 @@ const DEFAULT_HERO_BUTTONS: HeroButtonProps[] = [
 const DEFAULT_HERO_BADGE = (
   <Badge variant="outline" className="animate-appear border-primary/30 text-primary">
     <span className="text-muted-foreground">
-      Secure P2P voice over Tor
+      Private calls. No exceptions.
     </span>
     <a href={siteConfig.links.github} className="flex items-center gap-1">
-      View on GitHub
+      Learn more on GitHub
       <ArrowRightIcon className="size-3" />
     </a>
   </Badge>
 );
 
 export default function Hero({
-  title = "Private Voice Calls,\nAnonymous & Encrypted",
-  description = "OnionPhone is a push-to-talk voice communication tool that routes calls through the Tor network. No servers, no logs, no metadata — just you, your peer, and end-to-end encryption.",
+  title = "Speak freely. No one's listening.",
+  description = "OnionPhone lets you talk to someone over the internet without anyone else listening in. Your voice travels through the Tor network, scrambled with encryption that only your peer can undo. You get a direct, encrypted line between two devices. No records, no middlemen, no company watching.",
   mockup = (
     <div className="flex items-center justify-center rounded-lg bg-gradient-to-br from-primary/10 via-background to-primary/5 p-8 sm:p-12">
       <div className="text-center">

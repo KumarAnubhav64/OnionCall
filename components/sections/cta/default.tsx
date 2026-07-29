@@ -20,14 +20,14 @@ interface CTAProps {
 const DEFAULT_CTA_BUTTONS: CTAButtonProps[] = [
   {
     href: siteConfig.getStartedUrl,
-    text: "Download OnionPhone",
+    text: "Get OnionPhone",
     variant: "default",
     iconRight: <Download className="size-4 ml-1" />,
   },
 ];
 
 export default function CTA({
-  title = "Ready to make your first private call?",
+  title = "Ready to try a call that no one else can hear?",
   buttons = DEFAULT_CTA_BUTTONS,
   className,
 }: CTAProps) {
@@ -38,8 +38,7 @@ export default function CTA({
           {title}
         </h2>
         <p className="text-muted-foreground max-w-[500px] text-lg">
-          Download OnionPhone, share your .onion address, and start talking.
-          No sign-up, no servers, no surveillance.
+          Drop the installer on your machine, share your .onion address with a friend, and start talking. There's nothing to sign up for and nothing to install on their side either.
         </p>
         {buttons !== false && buttons.length > 0 && (
           <div className="flex justify-center gap-4">
