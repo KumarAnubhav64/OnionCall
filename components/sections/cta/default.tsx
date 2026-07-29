@@ -20,7 +20,7 @@ interface CTAProps {
 const DEFAULT_CTA_BUTTONS: CTAButtonProps[] = [
   {
     href: siteConfig.getStartedUrl,
-    text: "Download OnionCall",
+    text: "Download OnionPhone",
     variant: "default",
     iconRight: <Download className="size-4 ml-1" />,
   },
@@ -38,7 +38,7 @@ export default function CTA({
           {title}
         </h2>
         <p className="text-muted-foreground max-w-[500px] text-lg">
-          Download OnionCall, share your .onion address, and start talking.
+          Download OnionPhone, share your .onion address, and start talking.
           No sign-up, no servers, no surveillance.
         </p>
         {buttons !== false && buttons.length > 0 && (

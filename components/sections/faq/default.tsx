@@ -28,11 +28,11 @@ export default function FAQ({
   title = "Frequently Asked Questions",
   items = [
     {
-      question: "How does OnionCall protect my privacy?",
+      question: "How does OnionPhone protect my privacy?",
       answer: (
         <>
           <p className="text-muted-foreground mb-4 max-w-[640px] text-balance">
-            OnionCall routes all traffic through the Tor network, which encrypts
+            OnionPhone routes all traffic through the Tor network, which encrypts
             your data in multiple layers and bounces it through three volunteer-operated
             relays. Your IP address is never revealed to your peer, and no central
             server logs your calls.
@@ -49,7 +49,7 @@ export default function FAQ({
       answer: (
         <>
           <p className="text-muted-foreground mb-4 max-w-[600px]">
-            No. OnionCall bundles and manages its own Tor process. When you launch
+            No. OnionPhone bundles and manages its own Tor process. When you launch
             the app, it automatically starts Tor, creates a hidden service (onion
             service), and generates your unique .onion address. Everything is handled
             for you.
@@ -58,11 +58,11 @@ export default function FAQ({
       ),
     },
     {
-      question: "Can I use OnionCall without the Tor network?",
+      question: "Can I use OnionPhone without the Tor network?",
       answer: (
         <>
           <p className="text-muted-foreground mb-4 max-w-[580px]">
-            Yes, OnionCall also supports a direct TCP mode for testing on local
+            Yes, OnionPhone also supports a direct TCP mode for testing on local
             networks without Tor. However, for actual private communications, Tor
             mode is strongly recommended to protect your identity and location.
           </p>
@@ -74,7 +74,7 @@ export default function FAQ({
       answer: (
         <>
           <p className="text-muted-foreground mb-4 max-w-[580px]">
-            OnionCall uses the Opus audio codec, which delivers excellent voice
+            OnionPhone uses the Opus audio codec, which delivers excellent voice
             quality even at low bitrates. The push-to-talk (PTT) model ensures
             efficient bandwidth usage — audio is only transmitted when you hold
             the talk button.
@@ -87,7 +87,7 @@ export default function FAQ({
       answer: (
         <>
           <p className="text-muted-foreground mb-4 max-w-[580px]">
-            Yes. OnionCall supports Tor Snowflake, a pluggable transport that
+            Yes. OnionPhone supports Tor Snowflake, a pluggable transport that
             helps bypass censorship. Snowflake proxies your connection through
             volunteers' browsers, making it difficult for firewalls to block.
           </p>
@@ -95,11 +95,11 @@ export default function FAQ({
       ),
     },
     {
-      question: "Is OnionCall free and open source?",
+      question: "Is OnionPhone free and open source?",
       answer: (
         <>
           <p className="text-muted-foreground mb-4 max-w-[580px]">
-            Yes, OnionCall is completely free and open source under the MIT license.
+            Yes, OnionPhone is completely free and open source under the MIT license.
             You can view, modify, and distribute the source code on{" "}
             <a
               href={siteConfig.links.github}

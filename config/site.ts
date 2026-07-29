@@ -1,6 +1,6 @@
 export const siteConfig = {
-  name: "OnionCall",
-  url: "https://onioncall.app",
+  name: "OnionPhone",
+  url: "https://onionphone.app",
   getStartedUrl: "https://github.com/kumar-anubhav/terminalphone/releases",
   ogImage: "/og.jpg",
   description:
@@ -9,7 +9,7 @@ export const siteConfig = {
   links: {
     twitter: "https://twitter.com/",
     github: "https://github.com/kumar-anubhav/terminalphone",
-    email: "mailto:hello@onioncall.app",
+    email: "mailto:hello@onionphone.app",
   },
   stats: {
     github: 0,

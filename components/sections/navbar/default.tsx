@@ -7,7 +7,7 @@ import { ReactNode } from "react";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
-import OnionCallLogo from "../../logos/onion-call";
+import OnionPhoneLogo from "../../logos/onion-phone";
 import { Button, buttonVariants } from "../../ui/button";
 import {
   Navbar as NavbarComponent,
@@ -43,8 +43,8 @@ interface NavbarProps {
 }
 
 export default function Navbar({
-  logo = <OnionCallLogo className="size-6 text-primary" />,
-  name = "OnionCall",
+  logo = <OnionPhoneLogo className="size-6 text-primary" />,
+  name = "OnionPhone",
   homeUrl = "/",
   mobileLinks = [
     { text: "Features", href: "#features" },

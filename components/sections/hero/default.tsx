@@ -52,7 +52,7 @@ const DEFAULT_HERO_BADGE = (
 
 export default function Hero({
   title = "Private Voice Calls,\nAnonymous & Encrypted",
-  description = "OnionCall is a push-to-talk voice communication tool that routes calls through the Tor network. No servers, no logs, no metadata — just you, your peer, and end-to-end encryption.",
+  description = "OnionPhone is a push-to-talk voice communication tool that routes calls through the Tor network. No servers, no logs, no metadata — just you, your peer, and end-to-end encryption.",
   mockup = (
     <div className="flex items-center justify-center rounded-lg bg-gradient-to-br from-primary/10 via-background to-primary/5 p-8 sm:p-12">
       <div className="text-center">

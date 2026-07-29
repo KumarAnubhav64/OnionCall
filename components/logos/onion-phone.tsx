@@ -1,6 +1,6 @@
 import type { SVGProps } from "react";
 
-const OnionCall = (props: SVGProps<SVGSVGElement>) => (
+const OnionPhone = (props: SVGProps<SVGSVGElement>) => (
   <svg
     width="28"
     height="28"
@@ -21,4 +21,4 @@ const OnionCall = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export default OnionCall;
+export default OnionPhone;
