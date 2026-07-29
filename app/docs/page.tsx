@@ -78,7 +78,7 @@ export default function DocsPage() {
                 <p>Get OnionPhone running in under a minute:</p>
                 <div className="bg-muted rounded-lg p-4 overflow-x-auto">
                   <pre className="text-sm font-mono">
-                    <code>{`# 1. Download the latest binary                curl -L -o onionphone_Linux_x86_64.tar.gz https://github.com/kumar-anubhav/terminalphone/releases/latest/download/onionphone_Linux_x86_64.tar.gz
+                    <code>{`# 1. Download the latest binary                curl -L -o onionphone_Linux_x86_64.tar.gz https://gitlab.com/kumaranubhav20026/terminalphone/-/releases/permalink/latest/downloads/onionphone_Linux_x86_64.tar.gz
                 tar xzf onionphone_Linux_x86_64.tar.gz
 
                 # 2. Run OnionPhone
@@ -120,7 +120,7 @@ sudo apt-get update
 sudo apt-get install -y tor libopus-dev
 
 # Download and run
-curl -L -o onionphone.tar.gz https://github.com/kumar-anubhav/terminalphone/releases/latest/download/onionphone_Linux_x86_64.tar.gz
+curl -L -o onionphone.tar.gz https://gitlab.com/kumaranubhav20026/terminalphone/-/releases/permalink/latest/downloads/onionphone_Linux_x86_64.tar.gz
 tar xzf onionphone.tar.gz
 ./onionphone`}</code>
                   </pre>
@@ -133,7 +133,7 @@ tar xzf onionphone.tar.gz
 brew install tor opus-tools
 
 # Download and run
-curl -L -o onionphone.tar.gz https://github.com/kumar-anubhav/terminalphone/releases/latest/download/onionphone_Darwin_x86_64.tar.gz
+curl -L -o onionphone.tar.gz https://gitlab.com/kumaranubhav20026/terminalphone/-/releases/permalink/latest/downloads/onionphone_Darwin_x86_64.tar.gz
 tar xzf onionphone.tar.gz
 ./onionphone`}</code>
                   </pre>
@@ -143,7 +143,7 @@ tar xzf onionphone.tar.gz
                 <div className="bg-muted rounded-lg p-4 overflow-x-auto">
                   <pre className="text-sm font-mono">
                     <code>{`# Download the installer
-curl -L -o onionphone-installer https://github.com/kumar-anubhav/terminalphone/releases/latest/download/onionphone-installer_Linux_x86_64.tar.gz
+curl -L -o onionphone-installer https://gitlab.com/kumaranubhav20026/terminalphone/-/releases/permalink/latest/downloads/onionphone-installer_Linux_x86_64.tar.gz
 tar xzf onionphone-installer.tar.gz
 
 # Run installer (auto-detects your OS and installs dependencies)
@@ -167,7 +167,7 @@ tar xzf onionphone-installer.tar.gz
                 <div className="bg-muted rounded-lg p-4 overflow-x-auto">
                   <pre className="text-sm font-mono">
                     <code>{`# Clone the repository
-git clone https://github.com/kumar-anubhav/terminalphone.git
+git clone https://gitlab.com/kumaranubhav20026/terminalphone.git
 cd terminalphone
 
 # Install dependencies

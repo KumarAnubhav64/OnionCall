@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "Kumar Anubhav",
-      url: "https://github.com/kumar-anubhav",
+      url: "https://gitlab.com/kumaranubhav20026",
     },
   ],
   creator: "kumar-anubhav",
