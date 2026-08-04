@@ -78,16 +78,17 @@ export default function DocsPage() {
                 <p>Get OnionPhone running in under a minute:</p>
                 <div className="bg-muted rounded-lg p-4 overflow-x-auto">
                   <pre className="text-sm font-mono">
-                    <code>{`# 1. Download the latest binary                curl -L -o onionphone_Linux_x86_64.tar.gz https://gitlab.com/kumaranubhav20026/terminalphone/-/releases/permalink/latest/downloads/onionphone_Linux_x86_64.tar.gz
-                tar xzf onionphone_Linux_x86_64.tar.gz
+                    <code>{`# 1. Download the latest Linux binary
+curl -L -o onioncall.tar.gz https://gitlab.com/kumaranubhav20026/terminalphone/-/releases/permalink/latest/downloads/onioncall_Linux_x86_64.tar.gz
+tar xzf onioncall.tar.gz
 
-                # 2. Run OnionPhone
-                ./onionphone
+# 2. Run OnionCall
+./onioncall
 
-                # 3. Open http://localhost:8080/ in your browser
-                # 4. Wait for Tor to bootstrap (green checkmark)
-                # 5. Share your .onion address with a peer
-                # 6. Start talking!`}</code>
+# 3. Open http://localhost:8080/ in your browser
+# 4. Wait for Tor to bootstrap (green checkmark)
+# 5. Share your .onion address with a peer
+# 6. Start talking!`}</code>
                   </pre>
                 </div>
                 <div className="flex items-start gap-3 bg-primary/5 border border-primary/20 rounded-lg p-4">
@@ -95,7 +96,7 @@ export default function DocsPage() {
                   <div>
                     <strong className="block mb-1">Prerequisites</strong>
                     <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>Linux or macOS (Windows support coming soon)</li>
+                      <li>Linux or Windows (macOS coming soon)</li>
                       <li>Tor (bundled automatically)</li>
                       <li>libopus (for Opus audio codec)</li>
                       <li>Browser (Chrome, Firefox, or Safari)</li>
@@ -120,37 +121,39 @@ sudo apt-get update
 sudo apt-get install -y tor libopus-dev
 
 # Download and run
-curl -L -o onionphone.tar.gz https://gitlab.com/kumaranubhav20026/terminalphone/-/releases/permalink/latest/downloads/onionphone_Linux_x86_64.tar.gz
-tar xzf onionphone.tar.gz
-./onionphone`}</code>
+curl -L -o onioncall.tar.gz https://gitlab.com/kumaranubhav20026/terminalphone/-/releases/permalink/latest/downloads/onioncall_Linux_x86_64.tar.gz
+tar xzf onioncall.tar.gz
+./onioncall`}</code>
                   </pre>
                 </div>
 
-                <h3 className="text-xl font-semibold">macOS (Homebrew)</h3>
+                <h3 className="text-xl font-semibold">Windows (64-bit)</h3>
                 <div className="bg-muted rounded-lg p-4 overflow-x-auto">
                   <pre className="text-sm font-mono">
-                    <code>{`# Install dependencies
-brew install tor opus-tools
+                    <code>{`# Download the Windows build
+curl -L -o onioncall_Windows_x86_64.zip https://gitlab.com/kumaranubhav20026/terminalphone/-/releases/permalink/latest/downloads/onioncall_Windows_x86_64.zip
 
-# Download and run
-curl -L -o onionphone.tar.gz https://gitlab.com/kumaranubhav20026/terminalphone/-/releases/permalink/latest/downloads/onionphone_Darwin_x86_64.tar.gz
-tar xzf onionphone.tar.gz
-./onionphone`}</code>
+# Extract the zip (right-click → Extract All), then run:
+onioncall.exe`}</code>
                   </pre>
                 </div>
+                <p className="text-sm text-muted-foreground">
+                  macOS builds are planned. For a one-click Windows setup with Tor and SoX bundled,
+                  use the NSIS installer (see <code>terminalphone/scripts/windows/</code>).
+                </p>
 
                 <h3 className="text-xl font-semibold">Using the Installer</h3>
                 <div className="bg-muted rounded-lg p-4 overflow-x-auto">
                   <pre className="text-sm font-mono">
-                    <code>{`# Download the installer
-curl -L -o onionphone-installer https://gitlab.com/kumaranubhav20026/terminalphone/-/releases/permalink/latest/downloads/onionphone-installer_Linux_x86_64.tar.gz
-tar xzf onionphone-installer.tar.gz
+                    <code>{`# The release archive includes the app AND the dependency installer
+curl -L -o onioncall.tar.gz https://gitlab.com/kumaranubhav20026/terminalphone/-/releases/permalink/latest/downloads/onioncall_Linux_x86_64.tar.gz
+tar xzf onioncall.tar.gz
 
-# Run installer (auto-detects your OS and installs dependencies)
-./onionphone-installer
+# Run installer (installs Tor and libopus system dependencies)
+./onioncall-installer
 
 # Dry run mode (see what would be installed)
-./onionphone-installer --dry-run`}</code>
+./onioncall-installer --dry-run`}</code>
                   </pre>
                 </div>
               </div>
@@ -175,10 +178,10 @@ sudo apt-get install -y tor libopus-dev
 
 # Build the binary (embeds the web UI automatically)
 go mod tidy
-CGO_ENABLED=1 go build -o onionphone ./cmd/terminalphone
+CGO_ENABLED=1 go build -o onioncall ./cmd/terminalphone
 
 # Run
-./onionphone`}</code>
+./onioncall`}</code>
                   </pre>
                 </div>
 
