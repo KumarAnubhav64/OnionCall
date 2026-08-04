@@ -26,13 +26,14 @@ interface HeroProps {
 
 const DEFAULT_HERO_BUTTONS: HeroButtonProps[] = [
   {
-    href: siteConfig.getStartedUrl,
-    text: "Download",
+    href: siteConfig.downloads.linux,
+    text: "Download for Linux",
     variant: "default",
+    icon: <Download className="mr-2 size-4" />,
   },
   {
-    href: siteConfig.links.github,
-    text: "GitHub",
+    href: siteConfig.downloads.windows,
+    text: "Download for Windows",
     variant: "glow",
     icon: <ExternalLink className="mr-2 size-4" />,
   },
@@ -44,7 +45,7 @@ const DEFAULT_HERO_BADGE = (
       Private calls. No exceptions.
     </span>
     <a href={siteConfig.links.github} className="flex items-center gap-1">
-      Learn more on GitHub
+      Learn more on GitLab
       <ArrowRightIcon className="size-3" />
     </a>
   </Badge>
