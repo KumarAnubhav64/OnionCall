@@ -6,12 +6,11 @@ interface OnionPhoneProps {
 
 const OnionPhone = ({ className = "size-6" }: OnionPhoneProps) => (
   <Image
-    src="/logo.png"
+    src="/icon-512.png"
     alt="OnionPhone"
-    width={677}
-    height={369}
-    className={className + " object-contain"}
-    priority
+    width={512}
+    height={512}
+    className={className + " rounded-lg object-contain"}
   />
 );
 

@@ -1,4 +1,5 @@
-import { ArrowRightIcon, Download, ExternalLink } from "lucide-react";
+import { ArrowRightIcon, Download, ExternalLink, Mic } from "lucide-react";
+import Image from "next/image";
 import { ReactNode } from "react";
 
 import { siteConfig } from "@/config/site";
@@ -57,6 +58,19 @@ export default function Hero({
   mockup = (
     <div className="flex items-center justify-center rounded-lg bg-gradient-to-br from-primary/10 via-background to-primary/5 p-8 sm:p-12">
       <div className="text-center">
+        <div className="relative mx-auto mb-6 flex size-24 items-center justify-center sm:size-28">
+          <Image
+            src="/icon-512.png"
+            alt="OnionPhone app icon"
+            width={512}
+            height={512}
+            className="size-full rounded-2xl shadow-2xl shadow-primary/30"
+            priority
+          />
+          <span className="absolute -bottom-1.5 -right-1.5 flex size-7 items-center justify-center rounded-full bg-emerald-500 text-background ring-4 ring-background">
+            <Mic className="size-4" />
+          </span>
+        </div>
         <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm text-primary mb-4">
           <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
           Tor Connected
