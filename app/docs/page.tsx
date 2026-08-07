@@ -79,7 +79,7 @@ export default function DocsPage() {
                 <div className="bg-muted rounded-lg p-4 overflow-x-auto">
                   <pre className="text-sm font-mono">
                     <code>{`# 1. Download the latest Linux binary
-curl -L -o onioncall.tar.gz https://gitlab.com/kumaranubhav20026/terminalphone/-/releases/permalink/latest/downloads/onioncall_2.0.6_Linux_x86_64.tar.gz
+curl -L -o onioncall.tar.gz https://gitlab.com/kumaranubhav20026/terminalphone/-/releases/permalink/latest/downloads/onioncall_2.0.7_Linux_x86_64.tar.gz
 tar xzf onioncall.tar.gz
 
 # 2. Run OnionCall
@@ -121,7 +121,7 @@ sudo apt-get update
 sudo apt-get install -y tor libopus-dev
 
 # Download and run
-curl -L -o onioncall.tar.gz https://gitlab.com/kumaranubhav20026/terminalphone/-/releases/permalink/latest/downloads/onioncall_2.0.6_Linux_x86_64.tar.gz
+curl -L -o onioncall.tar.gz https://gitlab.com/kumaranubhav20026/terminalphone/-/releases/permalink/latest/downloads/onioncall_2.0.7_Linux_x86_64.tar.gz
 tar xzf onioncall.tar.gz
 ./onioncall`}</code>
                   </pre>
@@ -131,7 +131,7 @@ tar xzf onioncall.tar.gz
                 <div className="bg-muted rounded-lg p-4 overflow-x-auto">
                   <pre className="text-sm font-mono">
                     <code>{`# Download the Windows build
-curl -L -o onioncall_Windows_x86_64.zip https://gitlab.com/kumaranubhav20026/terminalphone/-/releases/permalink/latest/downloads/onioncall_2.0.6_Windows_x86_64.zip
+curl -L -o onioncall_Windows_x86_64.zip https://gitlab.com/kumaranubhav20026/terminalphone/-/releases/permalink/latest/downloads/onioncall_2.0.7_Windows_x86_64.zip
 
 # Extract the zip (right-click → Extract All), then run:
 onioncall.exe`}</code>
@@ -146,7 +146,7 @@ onioncall.exe`}</code>
                 <div className="bg-muted rounded-lg p-4 overflow-x-auto">
                   <pre className="text-sm font-mono">
                     <code>{`# The installer ships in its own archive
-curl -L -o onioncall-installer.tar.gz https://gitlab.com/kumaranubhav20026/terminalphone/-/releases/permalink/latest/downloads/onioncall-installer_2.0.6_Linux_x86_64.tar.gz
+curl -L -o onioncall-installer.tar.gz https://gitlab.com/kumaranubhav20026/terminalphone/-/releases/permalink/latest/downloads/onioncall-installer_2.0.7_Linux_x86_64.tar.gz
 tar xzf onioncall-installer.tar.gz
 
 # Run installer (installs Tor and libopus system dependencies)
