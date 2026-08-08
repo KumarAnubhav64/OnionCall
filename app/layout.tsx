@@ -1,8 +1,11 @@
 import "@/app/globals.css";
 
 import type { Metadata } from "next";
+import { Suspense } from "react";
 
+import PostHogPageView from "@/components/posthog-page-view";
 import { inter } from "@/lib/fonts";
+import { PostHogProviderClient } from "@/providers/posthog";
 
 import { siteConfig } from "../config/site";
 
@@ -69,7 +72,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" style={{ colorScheme: "dark" }} suppressHydrationWarning>
       <body className={`${inter.variable} bg-background font-sans antialiased`}>
-        {children}
+        <PostHogProviderClient>
+          <Suspense>
+            <PostHogPageView />
+          </Suspense>
+          {children}
+        </PostHogProviderClient>
       </body>
     </html>
   );

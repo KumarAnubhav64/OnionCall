@@ -11,7 +11,7 @@ import Glow from "../../ui/glow";
 import { LinkButton, type LinkButtonProps } from "../../ui/link-button";
 import { Mockup, MockupFrame } from "../../ui/mockup";
 import { Section } from "../../ui/section";
-import { LiveActions } from "./live-actions";
+import { LiveDownloadButtons, LiveReleaseBadge } from "./live-actions";
 
 interface HeroButtonProps extends Omit<LinkButtonProps, "children"> {
   text: string;
@@ -105,7 +105,7 @@ export default function Hero({
       <div className="max-w-container mx-auto flex flex-col gap-12 pt-16 sm:gap-24">
         <div className="flex flex-col items-center gap-6 text-center sm:gap-12">
           {release ? (
-            <LiveActions initial={release} />
+            <LiveReleaseBadge initial={release} />
           ) : (
             latestVersion && (
               <a
@@ -127,21 +127,26 @@ export default function Hero({
           <p className="text-md animate-appear text-muted-foreground relative z-10 max-w-[740px] font-medium text-balance opacity-0 delay-100 sm:text-xl">
             {description}
           </p>
-          {!release && buttons !== false && buttons.length > 0 && (
-            <div className="animate-appear relative z-10 flex justify-center gap-4 opacity-0 delay-300">
-              {buttons.map((button) => (
-                <LinkButton
-                  key={`${button.href}-${button.text}`}
-                  variant={button.variant || "default"}
-                  size="lg"
-                  href={button.href}
-                  icon={button.icon}
-                  iconRight={button.iconRight}
-                >
-                  {button.text}
-                </LinkButton>
-              ))}
-            </div>
+          {release ? (
+            <LiveDownloadButtons initial={release} />
+          ) : (
+            buttons !== false &&
+            buttons.length > 0 && (
+              <div className="animate-appear relative z-10 flex justify-center gap-4 opacity-0 delay-300">
+                {buttons.map((button) => (
+                  <LinkButton
+                    key={`${button.href}-${button.text}`}
+                    variant={button.variant || "default"}
+                    size="lg"
+                    href={button.href}
+                    icon={button.icon}
+                    iconRight={button.iconRight}
+                  >
+                    {button.text}
+                  </LinkButton>
+                ))}
+              </div>
+            )
           )}
           {mockup !== false && (
             <div className="relative w-full pt-12">
