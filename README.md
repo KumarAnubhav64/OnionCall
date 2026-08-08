@@ -49,9 +49,25 @@ npm run start      # → Serve production build
 Edit `config/site.ts` to update:
 
 - Site name and URL
-- Download/Call-to-action links
 - Social links (GitLab, email)
-- Version number
+- Static fallback version and download URLs
+
+## Release auto-sync (no more manual version bumps)
+
+The landing page fetches the **latest release live from the GitLab Releases API**
+(`lib/releases.ts` → `GET /api/v4/projects/kumaranubhav20026%2Fterminalphone/releases/permalink/latest`):
+
+- The **version badge** (hero + footer), the **download buttons**, and the
+  **install commands in the docs page** all derive from the latest tag and its
+  asset links — push a new `v*` tag and they update themselves.
+- **Node/Vercel deployments**: the API response is cached with ISR
+  (`revalidate: 3600`), so the page refreshes within an hour of a new release —
+  no rebuild needed.
+- **Static deployments (GitHub Pages, etc.)**: the hero pill and download
+  buttons re-check the API in the browser on every load, so they always show
+  the newest tag even though the page itself is pre-rendered.
+- If the API is unreachable (offline build, GitLab down), `config/site.ts` is
+  used as a static fallback so the page never breaks.
 
 ## Deployment
 

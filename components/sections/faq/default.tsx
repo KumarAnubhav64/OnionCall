@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { ReactNode } from "react";
 
 import { siteConfig } from "@/config/site";
@@ -38,8 +37,9 @@ export default function FAQ({
             server logs your calls.
           </p>
           <p className="text-muted-foreground mb-4 max-w-[640px] text-balance">
-            Additionally, all audio data is encrypted with NaCl secretbox (XSalsa20-Poly1305)
-            before it leaves your machine. Only your peer with the shared secret can decrypt it.
+            Additionally, all audio and text is encrypted with AES-256-CBC using a key derived
+            from your shared secret (PBKDF2) before it leaves your machine. Only your peer with
+            the same secret can decrypt it.
           </p>
         </>
       ),
@@ -89,7 +89,20 @@ export default function FAQ({
           <p className="text-muted-foreground mb-4 max-w-[580px]">
             Yes. OnionPhone supports Tor Snowflake, a pluggable transport that
             helps bypass censorship. Snowflake proxies your connection through
-            volunteers' browsers, making it difficult for firewalls to block.
+            volunteer browsers, making it difficult for firewalls to block.
+          </p>
+        </>
+      ),
+    },
+    {
+      question: "Is there a desktop app?",
+      answer: (
+        <>
+          <p className="text-muted-foreground mb-4 max-w-[580px]">
+            Yes. OnionPhone ships a native desktop app for Linux (the .deb and AppImage
+            packages, built with Tauri) that wraps the same Go backend and web UI in a
+            real window. Portable binaries are also available for Linux and Windows —
+            everything is published together on each release page.
           </p>
         </>
       ),
@@ -105,7 +118,7 @@ export default function FAQ({
               href={siteConfig.links.github}
               className="underline underline-offset-2"
             >
-              GitHub
+              GitLab
             </a>
             .
           </p>

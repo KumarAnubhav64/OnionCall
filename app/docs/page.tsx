@@ -1,9 +1,11 @@
+import { BookOpen, Download, Lock, Phone, Server, Shield, Terminal, Wifi } from "lucide-react";
 import Link from "next/link";
-import { Phone, Shield, BookOpen, Terminal, Wifi, Lock, Server, Download } from "lucide-react";
-import { siteConfig } from "@/config/site";
-import { Badge } from "@/components/ui/badge";
-import Navbar from "@/components/sections/navbar/default";
+
 import Footer from "@/components/sections/footer/default";
+import Navbar from "@/components/sections/navbar/default";
+import { Badge } from "@/components/ui/badge";
+import { siteConfig } from "@/config/site";
+import { getLatestRelease } from "@/lib/releases";
 
 const sections = [
   { id: "quick-start", label: "Quick Start" },
@@ -35,7 +37,12 @@ function SectionLink({ href, children }: { href: string; children: React.ReactNo
   );
 }
 
-export default function DocsPage() {
+export default async function DocsPage() {
+  // Pull the live release tag so every install command below always points at
+  // the latest version — no manual updates when a new release is tagged.
+  const release = await getLatestRelease();
+  const v = release.version.replace(/^v/, "");
+
   return (
     <main className="bg-background text-foreground min-h-screen w-full">
       <Navbar showNavigation={false} />
@@ -79,7 +86,7 @@ export default function DocsPage() {
                 <div className="bg-muted rounded-lg p-4 overflow-x-auto">
                   <pre className="text-sm font-mono">
                     <code>{`# 1. Download the latest Linux binary
-curl -L -o onioncall.tar.gz https://gitlab.com/kumaranubhav20026/terminalphone/-/releases/permalink/latest/downloads/onioncall_2.0.7_Linux_x86_64.tar.gz
+curl -L -o onioncall.tar.gz https://gitlab.com/kumaranubhav20026/terminalphone/-/releases/permalink/latest/downloads/onioncall_${v}_Linux_x86_64.tar.gz
 tar xzf onioncall.tar.gz
 
 # 2. Run OnionCall
@@ -121,17 +128,35 @@ sudo apt-get update
 sudo apt-get install -y tor libopus-dev
 
 # Download and run
-curl -L -o onioncall.tar.gz https://gitlab.com/kumaranubhav20026/terminalphone/-/releases/permalink/latest/downloads/onioncall_2.0.7_Linux_x86_64.tar.gz
+curl -L -o onioncall.tar.gz https://gitlab.com/kumaranubhav20026/terminalphone/-/releases/permalink/latest/downloads/onioncall_${v}_Linux_x86_64.tar.gz
 tar xzf onioncall.tar.gz
 ./onioncall`}</code>
                   </pre>
                 </div>
 
+                <h3 className="text-xl font-semibold">Linux Desktop App (recommended)</h3>
+                <div className="bg-muted rounded-lg p-4 overflow-x-auto">
+                  <pre className="text-sm font-mono">
+                    <code>{`# .deb (Debian/Ubuntu) — install with:
+curl -L -o OnionCall_${v}_amd64.deb https://gitlab.com/kumaranubhav20026/terminalphone/-/releases/permalink/latest/downloads/OnionCall_${v}_amd64.deb
+sudo dpkg -i OnionCall_${v}_amd64.deb
+
+# Or the AppImage — runs on any Linux distro, no install:
+curl -L -o OnionCall.AppImage https://gitlab.com/kumaranubhav20026/terminalphone/-/releases/permalink/latest/downloads/OnionCall_${v}_amd64.AppImage
+chmod +x OnionCall.AppImage
+./OnionCall.AppImage`}</code>
+                  </pre>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  The desktop app wraps the same Go backend and web UI in a native window —
+                  Tor starts automatically, and your <code>.onion</code> address is ready to share.
+                </p>
+
                 <h3 className="text-xl font-semibold">Windows (64-bit)</h3>
                 <div className="bg-muted rounded-lg p-4 overflow-x-auto">
                   <pre className="text-sm font-mono">
                     <code>{`# Download the Windows build
-curl -L -o onioncall_Windows_x86_64.zip https://gitlab.com/kumaranubhav20026/terminalphone/-/releases/permalink/latest/downloads/onioncall_2.0.7_Windows_x86_64.zip
+curl -L -o onioncall_Windows_x86_64.zip https://gitlab.com/kumaranubhav20026/terminalphone/-/releases/permalink/latest/downloads/onioncall_${v}_Windows_x86_64.zip
 
 # Extract the zip (right-click → Extract All), then run:
 onioncall.exe`}</code>
@@ -146,7 +171,7 @@ onioncall.exe`}</code>
                 <div className="bg-muted rounded-lg p-4 overflow-x-auto">
                   <pre className="text-sm font-mono">
                     <code>{`# The installer ships in its own archive
-curl -L -o onioncall-installer.tar.gz https://gitlab.com/kumaranubhav20026/terminalphone/-/releases/permalink/latest/downloads/onioncall-installer_2.0.7_Linux_x86_64.tar.gz
+curl -L -o onioncall-installer.tar.gz https://gitlab.com/kumaranubhav20026/terminalphone/-/releases/permalink/latest/downloads/onioncall-installer_${v}_Linux_x86_64.tar.gz
 tar xzf onioncall-installer.tar.gz
 
 # Run installer (installs Tor and libopus system dependencies)
@@ -220,7 +245,7 @@ npm run dev`}</code>
                   <li>Launch OnionPhone — it starts Tor automatically and generates your <code>.onion</code> address</li>
                   <li>On the <strong>Calls</strong> page, your <code>.onion</code> address is displayed — copy it</li>
                   <li>Send your address to a peer through any channel (Signal, Telegram, in person)</li>
-                  <li>Enter their <code>.onion</code> address in the "Call" field and press <strong>Call</strong></li>
+                  <li>Enter their <code>.onion</code> address in the &quot;Call&quot; field and press <strong>Call</strong></li>
                   <li>Once connected, hold the <strong>PTT (Push-to-Talk)</strong> button to speak</li>
                   <li>Release to listen — it works like a walkie-talkie!</li>
                 </ol>
@@ -229,7 +254,7 @@ npm run dev`}</code>
                 <ol className="space-y-3 list-decimal pl-5">
                   <li>Click <strong>Listen</strong> on the Calls page to start listening for incoming connections</li>
                   <li>Share your <code>.onion</code> address with peers who want to call you</li>
-                  <li>When someone connects, you'll hear a chime and the session state will show "Connected"</li>
+                  <li>When someone connects, you&apos;ll hear a chime and the session state will show &quot;Connected&quot;</li>
                   <li>Hold PTT to reply</li>
                 </ol>
 
@@ -313,9 +338,9 @@ npm run dev`}</code>
               </div>
               <p className="mt-4 text-sm text-muted-foreground">
                 When you press the PTT button, the microphone captures audio in 20ms frames. These are
-                Opus-encoded at 48kHz mono (32kbps), encrypted with NaCl secretbox (XSalsa20-Poly1305),
-                and transmitted over the Tor hidden service connection. The receiver decrypts, decodes,
-                and plays the audio.
+                Opus-encoded at 48kHz mono (32kbps), encrypted with AES-256-CBC (key derived
+                from your shared secret), and transmitted over the Tor hidden service connection.
+                The receiver decrypts, decodes, and plays the audio.
               </p>
             </section>
 
@@ -332,7 +357,7 @@ npm run dev`}</code>
                     </tr>
                   </thead>
                   <tbody className="divide-y">
-                    <tr><td className="py-3 pr-4 font-mono text-xs">ID:&lt;onion&gt;</td><td className="py-3 text-muted-foreground">Caller's .onion address</td></tr>
+                    <tr><td className="py-3 pr-4 font-mono text-xs">ID:&lt;onion&gt;</td><td className="py-3 text-muted-foreground">Caller&apos;s .onion address</td></tr>
                     <tr><td className="py-3 pr-4 font-mono text-xs">CIPHER:&lt;name&gt;</td><td className="py-3 text-muted-foreground">Encryption cipher name</td></tr>
                     <tr><td className="py-3 pr-4 font-mono text-xs">PING</td><td className="py-3 text-muted-foreground">Keepalive heartbeat</td></tr>
                     <tr><td className="py-3 pr-4 font-mono text-xs">PTT_START / PTT_STOP</td><td className="py-3 text-muted-foreground">Push-to-talk state change</td></tr>
@@ -388,7 +413,7 @@ npm run dev`}</code>
                 <div className="bg-card border rounded-lg p-5">
                   <h3 className="font-semibold mb-2">End-to-End Encryption</h3>
                   <p className="text-sm text-muted-foreground">
-                    All audio and text is encrypted with NaCl secretbox (XSalsa20-Poly1305)
+                    All audio and text is encrypted with AES-256-CBC (PBKDF2-derived key)
                     before entering the Tor network. Only your peer with the shared secret can decrypt.
                   </p>
                 </div>
@@ -396,14 +421,14 @@ npm run dev`}</code>
                   <h3 className="font-semibold mb-2">Transport Security</h3>
                   <p className="text-sm text-muted-foreground">
                     All data routes through Tor hidden service circuits — three layers of encryption
-                    bounced through volunteer-operated relays. Neither party's IP address is exposed.
+                    bounced through volunteer-operated relays. Neither party&apos;s IP address is exposed.
                     No cleartext traffic ever leaves your machine.
                   </p>
                 </div>
                 <div className="bg-card border rounded-lg p-5">
                   <h3 className="font-semibold mb-2">Authentication</h3>
                   <p className="text-sm text-muted-foreground">
-                    The shared secret serves as implicit authentication. If both parties don't have
+                    The shared secret serves as implicit authentication. If both parties don&apos;t have
                     the same secret, decryption fails. No accounts, no usernames, no passwords to leak.
                   </p>
                 </div>
@@ -457,7 +482,7 @@ npm run dev`}</code>
               <h2 className="text-2xl font-bold mb-4">Troubleshooting</h2>
               <div className="space-y-4">
                 <div className="bg-card border rounded-lg p-5">
-                  <h3 className="font-semibold mb-2">Tor won't start</h3>
+                  <h3 className="font-semibold mb-2">Tor won&apos;t start</h3>
                   <ul className="space-y-1 text-sm text-muted-foreground list-disc pl-5">
                     <li>Ensure Tor is installed: <code>sudo apt install tor</code></li>
                     <li>Check the Tor logs in the Dashboard tab</li>
@@ -479,7 +504,7 @@ npm run dev`}</code>
                   <ul className="space-y-1 text-sm text-muted-foreground list-disc pl-5">
                     <li>Ensure both parties have the same shared secret</li>
                     <li>Check that both parties have Tor connected</li>
-                    <li>Verify your microphone isn't muted</li>
+                    <li>Verify your microphone isn&apos;t muted</li>
                     <li>If using Snowflake, connection may be slower — try without it</li>
                   </ul>
                 </div>
@@ -487,7 +512,7 @@ npm run dev`}</code>
                   <h3 className="font-semibold mb-2">Browser shows blank page</h3>
                   <ul className="space-y-1 text-sm text-muted-foreground list-disc pl-5">
                     <li>Check the terminal for startup errors</li>
-                    <li>Ensure port 8080 isn't in use by another application</li>
+                    <li>Ensure port 8080 isn&apos;t in use by another application</li>
                     <li>Try accessing <code>http://127.0.0.1:8080/</code> instead of localhost</li>
                     <li>Clear your browser cache and reload</li>
                   </ul>
@@ -506,7 +531,7 @@ npm run dev`}</code>
                 rel="noopener noreferrer"
                 className="text-sm text-muted-foreground hover:text-foreground"
               >
-                View on GitHub →
+                View on GitLab →
               </a>
             </div>
           </article>

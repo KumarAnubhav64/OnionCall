@@ -26,6 +26,8 @@ interface FooterProps {
   name?: string;
   columns?: FooterColumnProps[];
   copyright?: string;
+  /** Latest release tag, e.g. "v2.0.10" — fetched live from GitLab */
+  version?: string;
   showModeToggle?: boolean;
   className?: string;
 }
@@ -46,19 +48,20 @@ export default function FooterSection({
       title: "Resources",
       links: [
         { text: "Tor Project", href: "https://www.torproject.org/" },
-        { text: "GitHub", href: siteConfig.links.github },
+        { text: "GitLab", href: siteConfig.links.github },
         { text: "Opus Codec", href: "https://opus-codec.org/" },
       ],
     },
     {
       title: "Contact",
       links: [
-        { text: "GitHub Issues", href: `${siteConfig.links.github}/issues` },
+        { text: "GitLab Issues", href: `${siteConfig.links.github}/issues` },
         { text: "Email", href: siteConfig.links.email },
       ],
     },
   ],
   copyright = `© ${new Date().getFullYear()} OnionPhone. Open source.`,
+  version,
   className,
 }: FooterProps) {
   return (
@@ -93,6 +96,14 @@ export default function FooterSection({
           </FooterContent>
           <FooterBottom>
             <div>{copyright}</div>
+            {version && (
+              <a
+                href={siteConfig.getStartedUrl}
+                className="transition-colors hover:text-foreground"
+              >
+                Latest release · {version}
+              </a>
+            )}
           </FooterBottom>
         </Footer>
       </div>

@@ -38,7 +38,7 @@ export default function CTA({
           {title}
         </h2>
         <p className="text-muted-foreground max-w-[500px] text-lg">
-          Drop the installer on your machine, share your .onion address with a friend, and start talking. There's nothing to sign up for and nothing to install on their side either.
+          Drop the installer on your machine, share your .onion address with a friend, and start talking. There&apos;s nothing to sign up for and nothing to install on their side either.
         </p>
         {buttons !== false && buttons.length > 0 && (
           <div className="flex justify-center gap-4">

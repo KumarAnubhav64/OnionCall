@@ -1,12 +1,12 @@
 import {
-  Shield,
-  Radio,
-  Lock,
-  Wifi,
-  Signal,
   Globe,
-  Server,
+  Lock,
   MessageSquare,
+  Radio,
+  Server,
+  Shield,
+  Signal,
+  Wifi,
 } from "lucide-react";
 import { ReactNode } from "react";
 
@@ -62,8 +62,8 @@ const DEFAULT_ITEMS: ItemProps[] = [
     icon: <Server className="size-5 stroke-1" />,
   },
   {
-    title: "Cross-Platform",
-    description: "Runs on Linux and macOS today. Stick it on a laptop, a Raspberry Pi in a closet, or a cloud server — if it can run Go and Tor, it can run OnionPhone.",
+    title: "Desktop App + Web UI",
+    description: "A native desktop app for Linux (.deb / AppImage) wraps the same Go backend and web UI — no browser tab required. Prefer the browser? Run it at localhost:8080; the experience is identical.",
     icon: <Globe className="size-5 stroke-1" />,
   },
 ];

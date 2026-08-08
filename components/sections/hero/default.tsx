@@ -3,14 +3,15 @@ import Image from "next/image";
 import { ReactNode } from "react";
 
 import { siteConfig } from "@/config/site";
+import { type ReleaseInfo } from "@/lib/releases";
 import { cn } from "@/lib/utils";
 
 import { Badge } from "../../ui/badge";
 import Glow from "../../ui/glow";
 import { LinkButton, type LinkButtonProps } from "../../ui/link-button";
 import { Mockup, MockupFrame } from "../../ui/mockup";
-
 import { Section } from "../../ui/section";
+import { LiveActions } from "./live-actions";
 
 interface HeroButtonProps extends Omit<LinkButtonProps, "children"> {
   text: string;
@@ -21,6 +22,10 @@ interface HeroProps {
   description?: string;
   mockup?: ReactNode | false;
   badge?: ReactNode | false;
+  /** Latest release tag (e.g. "v2.0.10") — fetched live from GitLab */
+  latestVersion?: string;
+  /** Live release data — renders the self-updating pill + download buttons */
+  release?: ReleaseInfo;
   buttons?: HeroButtonProps[] | false;
   className?: string;
 }
@@ -54,7 +59,7 @@ const DEFAULT_HERO_BADGE = (
 
 export default function Hero({
   title = "Speak freely. No one's listening.",
-  description = "OnionPhone lets you talk to someone over the internet without anyone else listening in. Your voice travels through the Tor network, scrambled with encryption that only your peer can undo. You get a direct, encrypted line between two devices. No records, no middlemen, no company watching.",
+  description = "OnionPhone gives you a direct, end-to-end encrypted line between two devices over the Tor network. Install the native desktop app (Linux & Windows) or open the web UI in any browser — it starts Tor for you and hands you a .onion address. No servers, no logs, no company watching.",
   mockup = (
     <div className="flex items-center justify-center rounded-lg bg-gradient-to-br from-primary/10 via-background to-primary/5 p-8 sm:p-12">
       <div className="text-center">
@@ -85,6 +90,8 @@ export default function Hero({
     </div>
   ),
   badge = DEFAULT_HERO_BADGE,
+  latestVersion,
+  release,
   buttons = DEFAULT_HERO_BUTTONS,
   className,
 }: HeroProps) {
@@ -97,6 +104,22 @@ export default function Hero({
     >
       <div className="max-w-container mx-auto flex flex-col gap-12 pt-16 sm:gap-24">
         <div className="flex flex-col items-center gap-6 text-center sm:gap-12">
+          {release ? (
+            <LiveActions initial={release} />
+          ) : (
+            latestVersion && (
+              <a
+                href={siteConfig.getStartedUrl}
+                className="animate-appear inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3.5 py-1.5 text-xs font-semibold text-primary opacity-0 delay-100 transition-colors hover:border-primary/40 hover:bg-primary/10"
+              >
+                <span className="relative flex size-2">
+                  <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+                  <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
+                </span>
+                Latest release · {latestVersion}
+              </a>
+            )
+          )}
           {badge !== false && badge}
           <h1 className="animate-appear from-foreground to-foreground dark:to-muted-foreground relative z-10 inline-block bg-linear-to-r bg-clip-text text-4xl leading-tight font-semibold text-balance text-transparent drop-shadow-2xl sm:text-6xl sm:leading-tight md:text-8xl md:leading-tight">
             {title}
@@ -104,7 +127,7 @@ export default function Hero({
           <p className="text-md animate-appear text-muted-foreground relative z-10 max-w-[740px] font-medium text-balance opacity-0 delay-100 sm:text-xl">
             {description}
           </p>
-          {buttons !== false && buttons.length > 0 && (
+          {!release && buttons !== false && buttons.length > 0 && (
             <div className="animate-appear relative z-10 flex justify-center gap-4 opacity-0 delay-300">
               {buttons.map((button) => (
                 <LinkButton

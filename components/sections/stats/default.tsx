@@ -20,7 +20,7 @@ const DEFAULT_STATS: StatItemProps[] = [
   },
   {
     label: "encryption",
-    value: "NaCl",
+    value: "AES-256",
     description: "end-to-end encryption",
   },
   {
