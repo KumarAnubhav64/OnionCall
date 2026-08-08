@@ -31,13 +31,13 @@ npm run start      # → Serve production build
 │   ├── layout.tsx        # Root layout with metadata, fonts, dark mode
 │   └── docs/page.tsx     # Full documentation page
 ├── components/
-│   ├── logos/            # OnionPhone logo component (PNG-based)
+│   ├── logos/            # OnionCall logo component (PNG-based)
 │   ├── sections/         # Page sections: hero, items, stats, faq, cta, footer, navbar
 │   └── ui/               # Reusable UI primitives (button, card, badge, etc.)
 ├── config/
 │   └── site.ts           # Site configuration (URLs, links, metadata)
 ├── public/
-│   ├── logo.png          # OnionPhone logo
+│   ├── logo.png          # OnionCall logo
 │   ├── og.jpg            # Open Graph image
 │   └── dashboard-*.png   # Screenshots
 └── styles/

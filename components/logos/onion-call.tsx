@@ -1,17 +1,17 @@
 import Image from "next/image";
 
-interface OnionPhoneProps {
+interface OnionCallProps {
   className?: string;
 }
 
-const OnionPhone = ({ className = "size-6" }: OnionPhoneProps) => (
+const OnionCall = ({ className = "size-6" }: OnionCallProps) => (
   <Image
     src="/icon-512.png"
-    alt="OnionPhone"
+    alt="OnionCall"
     width={512}
     height={512}
     className={className + " rounded-lg object-contain"}
   />
 );
 
-export default OnionPhone;
+export default OnionCall;

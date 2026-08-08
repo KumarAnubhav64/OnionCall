@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
-import OnionPhoneLogo from "../../logos/onion-phone";
+import OnionCallLogo from "../../logos/onion-call";
 import {
   Footer,
   FooterBottom,
@@ -33,8 +33,8 @@ interface FooterProps {
 }
 
 export default function FooterSection({
-  logo = <OnionPhoneLogo className="size-6 text-primary" />,
-  name = "OnionPhone",
+  logo = <OnionCallLogo className="size-6 text-primary" />,
+  name = "OnionCall",
   columns = [
     {
       title: "Product",
@@ -60,7 +60,7 @@ export default function FooterSection({
       ],
     },
   ],
-  copyright = `© ${new Date().getFullYear()} OnionPhone. Open source.`,
+  copyright = `© ${new Date().getFullYear()} OnionCall. Open source.`,
   version,
   className,
 }: FooterProps) {

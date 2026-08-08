@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "OnionPhone",
+  name: "OnionCall",
   url: "https://onionphone.app",
   getStartedUrl: "https://gitlab.com/kumaranubhav20026/terminalphone/-/releases",
   // Static fallbacks used ONLY when the GitLab Releases API is unreachable

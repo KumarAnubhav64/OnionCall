@@ -59,14 +59,14 @@ const DEFAULT_HERO_BADGE = (
 
 export default function Hero({
   title = "Speak freely. No one's listening.",
-  description = "OnionPhone gives you a direct, end-to-end encrypted line between two devices over the Tor network. Install the native desktop app (Linux & Windows) or open the web UI in any browser — it starts Tor for you and hands you a .onion address. No servers, no logs, no company watching.",
+  description = "OnionCall gives you a direct, end-to-end encrypted line between two devices over the Tor network. Install the native desktop app (Linux & Windows) or open the web UI in any browser — it starts Tor for you and hands you a .onion address. No servers, no logs, no company watching.",
   mockup = (
     <div className="flex items-center justify-center rounded-lg bg-gradient-to-br from-primary/10 via-background to-primary/5 p-8 sm:p-12">
       <div className="text-center">
         <div className="relative mx-auto mb-6 flex size-24 items-center justify-center sm:size-28">
           <Image
             src="/icon-512.png"
-            alt="OnionPhone app icon"
+            alt="OnionCall app icon"
             width={512}
             height={512}
             className="size-full rounded-2xl shadow-2xl shadow-primary/30"

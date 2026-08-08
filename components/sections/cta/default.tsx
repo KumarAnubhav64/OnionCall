@@ -20,7 +20,7 @@ interface CTAProps {
 const DEFAULT_CTA_BUTTONS: CTAButtonProps[] = [
   {
     href: siteConfig.getStartedUrl,
-    text: "Get OnionPhone",
+    text: "Get OnionCall",
     variant: "default",
     iconRight: <Download className="size-4 ml-1" />,
   },

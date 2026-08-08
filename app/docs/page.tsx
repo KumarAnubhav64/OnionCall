@@ -23,7 +23,7 @@ const sections = [
 
 export const metadata = {
   title: "Documentation",
-  description: "Comprehensive documentation for OnionPhone — secure P2P voice over Tor.",
+  description: "Comprehensive documentation for OnionCall — secure P2P voice over Tor.",
 };
 
 function SectionLink({ href, children }: { href: string; children: React.ReactNode }) {
@@ -71,7 +71,7 @@ export default async function DocsPage() {
                 Documentation
               </h1>
               <p className="text-lg text-muted-foreground">
-                Everything you need to install, configure, and use OnionPhone for secure P2P voice communication over Tor.
+                Everything you need to install, configure, and use OnionCall for secure P2P voice communication over Tor.
               </p>
             </div>
 
@@ -82,7 +82,7 @@ export default async function DocsPage() {
                 Quick Start
               </h2>
               <div className="bg-card border rounded-lg p-6 space-y-4">
-                <p>Get OnionPhone running in under a minute:</p>
+                <p>Get OnionCall running in under a minute:</p>
                 <div className="bg-muted rounded-lg p-4 overflow-x-auto">
                   <pre className="text-sm font-mono">
                     <code>{`# 1. Download the latest Linux binary
@@ -227,7 +227,7 @@ npm run dev`}</code>
                 <div className="flex items-start gap-3 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg p-4">
                   <Shield className="h-5 w-5 text-amber-600 shrink-0 mt-0.5" />
                   <div className="text-sm">
-                    <strong>CGO note:</strong> OnionPhone uses <code>go-sqlite3</code> which requires CGO. Cross-compilation for different platforms needs a C cross-compiler (e.g., <code>mingw-w64</code> for Windows).
+                    <strong>CGO note:</strong> OnionCall uses <code>go-sqlite3</code> which requires CGO. Cross-compilation for different platforms needs a C cross-compiler (e.g., <code>mingw-w64</code> for Windows).
                   </div>
                 </div>
               </div>
@@ -242,7 +242,7 @@ npm run dev`}</code>
               <div className="space-y-6">
                 <h3 className="text-xl font-semibold">Making a Call</h3>
                 <ol className="space-y-3 list-decimal pl-5">
-                  <li>Launch OnionPhone — it starts Tor automatically and generates your <code>.onion</code> address</li>
+                  <li>Launch OnionCall — it starts Tor automatically and generates your <code>.onion</code> address</li>
                   <li>On the <strong>Calls</strong> page, your <code>.onion</code> address is displayed — copy it</li>
                   <li>Send your address to a peer through any channel (Signal, Telegram, in person)</li>
                   <li>Enter their <code>.onion</code> address in the &quot;Call&quot; field and press <strong>Call</strong></li>
@@ -278,7 +278,7 @@ npm run dev`}</code>
             {/* ── Web UI ── */}
             <section id="web-ui" className="scroll-mt-24 mb-16">
               <h2 className="text-2xl font-bold mb-4">Web UI</h2>
-              <p className="mb-4">OnionPhone provides a complete web interface at <code>http://localhost:8080/</code>:</p>
+              <p className="mb-4">OnionCall provides a complete web interface at <code>http://localhost:8080/</code>:</p>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm border-collapse">
                   <thead>
@@ -316,7 +316,7 @@ npm run dev`}</code>
             {/* ── How It Works ── */}
             <section id="how-it-works" className="scroll-mt-24 mb-16">
               <h2 className="text-2xl font-bold mb-4">How It Works</h2>
-              <p className="mb-4">OnionPhone uses a push-to-talk (PTT) audio model, similar to a walkie-talkie:</p>
+              <p className="mb-4">OnionCall uses a push-to-talk (PTT) audio model, similar to a walkie-talkie:</p>
               <div className="bg-card border rounded-lg p-6 space-y-4">
                 <div className="text-center text-sm text-muted-foreground space-y-2">
                   <div className="flex items-center justify-center gap-2">
@@ -435,7 +435,7 @@ npm run dev`}</code>
                 <div className="bg-card border rounded-lg p-5">
                   <h3 className="font-semibold mb-2">No Metadata</h3>
                   <p className="text-sm text-muted-foreground">
-                    OnionPhone does not log call metadata — no call duration, no IP addresses,
+                    OnionCall does not log call metadata — no call duration, no IP addresses,
                     no timestamps, no contact lists. Tor hidden services ensure the Tor network
                     itself cannot learn who is communicating with whom.
                   </p>
@@ -486,7 +486,7 @@ npm run dev`}</code>
                   <ul className="space-y-1 text-sm text-muted-foreground list-disc pl-5">
                     <li>Ensure Tor is installed: <code>sudo apt install tor</code></li>
                     <li>Check the Tor logs in the Dashboard tab</li>
-                    <li>Try restarting OnionPhone</li>
+                    <li>Try restarting OnionCall</li>
                     <li>On some systems, you may need to stop the system Tor service first</li>
                   </ul>
                 </div>
