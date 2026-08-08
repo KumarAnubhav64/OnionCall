@@ -1,5 +1,11 @@
-import { ArrowRightIcon, Download, ExternalLink, Mic } from "lucide-react";
-import Image from "next/image";
+import {
+  ArrowRightIcon,
+  Download,
+  ExternalLink,
+  Lock,
+  QrCode,
+  ShieldCheck,
+} from "lucide-react";
 import { ReactNode } from "react";
 
 import { siteConfig } from "@/config/site";
@@ -59,33 +65,43 @@ const DEFAULT_HERO_BADGE = (
 
 export default function Hero({
   title = "Speak freely. No one's listening.",
-  description = "OnionCall gives you a direct, end-to-end encrypted line between two devices over the Tor network. Install the native desktop app (Linux & Windows) or open the web UI in any browser — it starts Tor for you and hands you a .onion address. No servers, no logs, no company watching.",
+  description = "OnionCall gives you a direct, end-to-end encrypted line between two devices over the Tor network. Install the native desktop app (Linux & Windows) or open the web UI in any browser — it starts Tor for you and hands you a .onion address. Pair with a friend by scanning a QR code and saying one password aloud — everything else is handled. No servers, no logs, no company watching.",
   mockup = (
-    <div className="flex items-center justify-center rounded-lg bg-gradient-to-br from-primary/10 via-background to-primary/5 p-8 sm:p-12">
-      <div className="text-center">
-        <div className="relative mx-auto mb-6 flex size-24 items-center justify-center sm:size-28">
-          <Image
-            src="/icon-512.png"
-            alt="OnionCall app icon"
-            width={512}
-            height={512}
-            className="size-full rounded-2xl shadow-2xl shadow-primary/30"
-            priority
-          />
-          <span className="absolute -bottom-1.5 -right-1.5 flex size-7 items-center justify-center rounded-full bg-emerald-500 text-background ring-4 ring-background">
-            <Mic className="size-4" />
-          </span>
+    <div className="flex flex-col items-center justify-center gap-8 rounded-lg bg-gradient-to-br from-primary/10 via-background to-primary/5 p-8 sm:p-12">
+      <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
+        {/* Your screen — share */}
+        <div className="w-full max-w-[220px] rounded-xl border border-primary/20 bg-background/90 p-4 text-center shadow-xl shadow-primary/10">
+          <div className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-[11px] font-semibold text-primary">
+            <Lock className="size-3" />
+            Encrypted with password
+          </div>
+          <div className="relative mx-auto mb-3 flex size-28 items-center justify-center overflow-hidden rounded-lg border border-border bg-white p-1.5 sm:size-32">
+            <QrCode className="size-full text-neutral-900" strokeWidth={1} />
+            <span className="absolute inset-x-1.5 top-1/2 h-0.5 -translate-y-1/2 animate-pulse rounded-full bg-primary/70 shadow-[0_0_12px_2px] shadow-primary/40" />
+          </div>
+          <p className="text-xs font-medium text-muted-foreground">
+            Show this QR · say the password
+          </p>
         </div>
-        <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm text-primary mb-4">
-          <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-          Tor Connected
+
+        <ArrowRightIcon className="size-5 shrink-0 rotate-90 text-muted-foreground sm:rotate-0" />
+
+        {/* Peer's screen — scan */}
+        <div className="w-full max-w-[220px] rounded-xl border border-emerald-500/25 bg-background/90 p-4 text-center shadow-xl shadow-emerald-500/5">
+          <div className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-3 py-1 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
+            <ShieldCheck className="size-3" />
+            Pairing complete
+          </div>
+          <div className="mx-auto mb-3 flex size-28 items-center justify-center rounded-lg border border-emerald-500/20 bg-emerald-500/5 sm:size-32">
+            <ShieldCheck className="size-10 text-emerald-500" strokeWidth={1.5} />
+          </div>
+          <p className="text-xs font-medium text-emerald-600 dark:text-emerald-400">
+            Paired · AES-256 encrypted
+          </p>
         </div>
-        <div className="text-3xl font-bold text-foreground/80 mb-2">
-          your-onion-address.onion
-        </div>
-        <div className="text-sm text-muted-foreground">
-          Share this address with your peer to start a secure call
-        </div>
+      </div>
+      <div className="text-center text-sm font-medium text-muted-foreground">
+        One scan + one spoken password = fully paired, no servers involved
       </div>
     </div>
   ),

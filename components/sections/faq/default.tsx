@@ -45,6 +45,27 @@ export default function FAQ({
       ),
     },
     {
+      question: "How do I pair with a friend?",
+      answer: (
+        <>
+          <p className="text-muted-foreground mb-4 max-w-[600px]">
+            On the Dashboard, open the &ldquo;Pair with a Peer&rdquo; card and hit
+            Generate. A QR code appears containing your onion address and a freshly
+            generated shared secret — encrypted with a password only you know.
+            Tell your friend that password out loud, over the phone, or in person;
+            never send it inside the QR itself.
+          </p>
+          <p className="text-muted-foreground mb-4 max-w-[600px]">
+            Your friend uploads a photo of the QR code and types the password.
+            OnionCall decrypts it, adopts the same secret, and offers a one-click
+            call. Even if someone photographs the QR, it&apos;s useless without the
+            password. Prefer keyboards? You can also type the shared secret in
+            manually.
+          </p>
+        </>
+      ),
+    },
+    {
       question: "Do I need to install Tor separately?",
       answer: (
         <>

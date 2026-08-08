@@ -2,8 +2,8 @@ import {
   Globe,
   Lock,
   MessageSquare,
+  QrCode,
   Radio,
-  Server,
   Shield,
   Signal,
   Wifi,
@@ -57,9 +57,9 @@ const DEFAULT_ITEMS: ItemProps[] = [
     icon: <MessageSquare className="size-5 stroke-1" />,
   },
   {
-    title: "Run a Relay (Optional)",
-    description: "If direct connections won't work, you can host a simple bridge that forwards traffic. The relay never sees your encryption keys — it just passes bytes along.",
-    icon: <Server className="size-5 stroke-1" />,
+    title: "QR Code Pairing",
+    description: "Show a QR code and say one password aloud. Your peer scans it and types the password to adopt your shared secret — the QR is useless to anyone who doesn't know the password.",
+    icon: <QrCode className="size-5 stroke-1" />,
   },
   {
     title: "Desktop App + Web UI",
