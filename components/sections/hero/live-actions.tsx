@@ -9,6 +9,7 @@ import {
   parseGitLabReleasePayload,
   type ReleaseInfo,
 } from "@/lib/releases";
+import { cn } from "@/lib/utils";
 
 import { LinkButton } from "../../ui/link-button";
 
@@ -89,11 +90,19 @@ export function LiveReleaseBadge({ initial }: LiveReleaseProps) {
  * Primary download buttons. Reads the same live release as the badge, so the
  * links always point at the newest published assets.
  */
-export function LiveDownloadButtons({ initial }: LiveReleaseProps) {
+export function LiveDownloadButtons({
+  initial,
+  className,
+}: LiveReleaseProps & { className?: string }) {
   const release = useLiveRelease(initial);
 
   return (
-    <div className="animate-appear relative z-10 flex justify-center gap-4 opacity-0 delay-300">
+    <div
+      className={cn(
+        "animate-appear relative z-10 flex justify-center gap-4 opacity-0 delay-300",
+        className,
+      )}
+    >
       <LinkButton
         href={release.downloads.deb || release.downloads.linux}
         size="lg"
