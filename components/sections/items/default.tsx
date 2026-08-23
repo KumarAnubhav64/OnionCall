@@ -32,8 +32,8 @@ const DEFAULT_ITEMS: ItemProps[] = [
     icon: <Shield className="size-5 stroke-1" />,
   },
   {
-    title: "End-to-End Encryption",
-    description: "Every syllable is scrambled before it leaves your device. Your peer's machine unscrambles it. Nobody in between — not your ISP, not Tor relays — hears a thing.",
+    title: "Authenticated & Forward-Secret",
+    description: "Voice and text are sealed with XChaCha20-Poly1305 under an ephemeral key agreed fresh for every call. Tampering fails authentication; later key leaks can't unseal past calls.",
     icon: <Lock className="size-5 stroke-1" />,
   },
   {
@@ -53,7 +53,7 @@ const DEFAULT_ITEMS: ItemProps[] = [
   },
   {
     title: "Chat Alongside Voice",
-    description: "Drop a link or a quick note without interrupting the call. Messages are encrypted with the same key as your voice — everything stays private together.",
+    description: "Drop a link or a quick note without interrupting the call. Messages ride the same authenticated channel as your voice, sealed with the call's unique key.",
     icon: <MessageSquare className="size-5 stroke-1" />,
   },
   {

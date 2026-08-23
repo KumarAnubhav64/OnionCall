@@ -14,24 +14,24 @@ interface StatsProps {
 
 const DEFAULT_STATS: StatItemProps[] = [
   {
-    label: "privacy",
-    value: "Tor",
-    description: "onion-routed calls",
-  },
-  {
     label: "encryption",
-    value: "AES-256",
-    description: "end-to-end encryption",
+    value: "XChaCha20",
+    description: "authenticated payloads",
   },
   {
-    label: "audio",
-    value: "Opus",
-    description: "high-quality codec",
+    label: "secrecy",
+    value: "PFS",
+    description: "fresh keys every call",
+  },
+  {
+    label: "delivery",
+    value: "100%",
+    description: "frames delivered over Tor",
   },
   {
     label: "model",
     value: "P2P",
-    description: "no central servers",
+    description: "zero central servers",
   },
 ];
 

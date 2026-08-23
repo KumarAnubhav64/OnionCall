@@ -103,7 +103,7 @@ export default function Hero({
             <ShieldCheck className="size-10 text-emerald-500" strokeWidth={1.5} />
           </div>
           <p className="text-xs font-medium text-emerald-600 dark:text-emerald-400">
-            Paired · AES-256 encrypted
+            Paired · forward-secret E2EE
           </p>
         </div>
       </div>
@@ -232,7 +232,7 @@ export default function Hero({
                 className="animate-appear absolute -right-3 bottom-12 z-20 gap-1.5 opacity-0 delay-1000"
               >
                 <ShieldCheck className="size-3.5 text-emerald-500" />
-                AES-256 encrypted
+                XChaCha20-Poly1305
               </Badge>
             </div>
           </div>

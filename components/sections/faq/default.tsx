@@ -37,9 +37,12 @@ export default function FAQ({
             server logs your calls.
           </p>
           <p className="text-muted-foreground mb-4 max-w-[640px] text-balance">
-            Additionally, all audio and text is encrypted with AES-256-CBC using a key derived
-            from your shared secret (PBKDF2) before it leaves your machine. Only your peer with
-            the same secret can decrypt it.
+            On top of Tor, both peers run an authenticated handshake: they prove
+            knowledge of your shared secret, then agree a brand-new ephemeral
+            X25519 key for that call. Audio and text are sealed with
+            XChaCha20-Poly1305 under that per-call key and protected against
+            replays — so even if the shared secret ever leaked later, recorded
+            calls stay unreadable.
           </p>
         </>
       ),
