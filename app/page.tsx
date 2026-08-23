@@ -2,6 +2,7 @@ import CTA from "../components/sections/cta/default";
 import FAQ from "../components/sections/faq/default";
 import Footer from "../components/sections/footer/default";
 import Hero from "../components/sections/hero/default";
+import HowItWorks from "../components/sections/how-it-works/default";
 import Items from "../components/sections/items/default";
 import Navbar from "../components/sections/navbar/default";
 import Stats from "../components/sections/stats/default";
@@ -18,6 +19,7 @@ export default async function Home() {
       <LayoutLines />
       <Navbar />
       <Hero release={release} />
+      <HowItWorks />
       <Items />
       <Stats />
       <FAQ />
