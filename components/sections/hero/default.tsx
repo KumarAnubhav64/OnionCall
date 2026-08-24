@@ -15,7 +15,7 @@ import { type ReleaseInfo } from "@/lib/releases";
 import { cn } from "@/lib/utils";
 
 import { Badge } from "../../ui/badge";
-import PredictiveArc from "../../ui/predictive-arc";
+import ThreeUIArc from "../../ui/threeui-arc";
 import { LinkButton, type LinkButtonProps } from "../../ui/link-button";
 import { Mockup, MockupFrame } from "../../ui/mockup";
 import { Section } from "../../ui/section";
@@ -87,7 +87,9 @@ export default function Hero({
       )}
     >
       {/* Predictive-arc background: pixel dome + sweeping light + luminous core */}
-      <PredictiveArc className="opacity-80 [mask-image:linear-gradient(to_bottom,transparent_0%,black_26%,black_70%,transparent_100%)]" />
+      <div className="absolute inset-0" aria-hidden>
+        <ThreeUIArc className="h-full w-full opacity-80 [mask-image:linear-gradient(to_bottom,transparent_0%,black_26%,black_70%,transparent_100%)]" />
+      </div>
       <div className="max-w-container relative z-10 mx-auto flex flex-col items-center gap-12 pt-16 text-center sm:gap-14 sm:pt-20 lg:gap-16 lg:pt-24">
         {/* Release pill + badge */}
         <div className="animate-appear relative z-10 flex flex-col items-center gap-4 opacity-0 delay-100">
