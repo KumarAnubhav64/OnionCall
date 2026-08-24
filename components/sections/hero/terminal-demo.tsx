@@ -164,7 +164,7 @@ export default function TerminalDemo() {
   }, [active, scrambleP]);
 
   return (
-    <div className="flex h-full flex-col">
+    <div className="flex h-[380px] w-full flex-col overflow-hidden">
       {/* Title bar */}
       <div className="border-border/60 flex items-center gap-2 border-b px-4 py-3">
         <span className="size-2.5 rounded-full bg-red-500/70" />
@@ -179,7 +179,7 @@ export default function TerminalDemo() {
       </div>
 
       {/* Session output */}
-      <div className="min-h-[240px] flex-1 space-y-1.5 px-5 py-4 font-mono text-[12px] leading-relaxed sm:text-[13px]">
+      <div className="flex-1 space-y-1.5 overflow-hidden px-5 py-4 font-mono text-[12px] leading-relaxed sm:text-[13px]">
         {done.map((line, i) => (
           <div key={i} className={cn("flex gap-2", KIND_CLASS[line.kind])}>
             {line.kind === "cmd" ? (
