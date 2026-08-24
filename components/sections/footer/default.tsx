@@ -41,6 +41,7 @@ export default function FooterSection({
       links: [
         { text: "Features", href: "/#features" },
         { text: "Docs", href: "/docs" },
+        { text: "Changelog", href: "/changelog" },
         { text: "Download", href: siteConfig.getStartedUrl },
       ],
     },

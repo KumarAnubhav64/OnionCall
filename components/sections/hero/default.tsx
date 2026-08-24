@@ -4,9 +4,7 @@ import {
   Download,
   ExternalLink,
   EyeOff,
-  Lock,
   Network,
-  QrCode,
   Server,
   ShieldCheck,
 } from "lucide-react";
@@ -17,11 +15,12 @@ import { type ReleaseInfo } from "@/lib/releases";
 import { cn } from "@/lib/utils";
 
 import { Badge } from "../../ui/badge";
-import Glow from "../../ui/glow";
+import PredictiveArc from "../../ui/predictive-arc";
 import { LinkButton, type LinkButtonProps } from "../../ui/link-button";
 import { Mockup, MockupFrame } from "../../ui/mockup";
 import { Section } from "../../ui/section";
 import { LiveDownloadButtons, LiveReleaseBadge } from "./live-actions";
+import TerminalDemo from "./terminal-demo";
 
 interface HeroButtonProps extends Omit<LinkButtonProps, "children"> {
   text: string;
@@ -72,46 +71,8 @@ const DEFAULT_HERO_BADGE = (
 export default function Hero({
   title = "Speak freely.",
   titleAccent = "No one's listening.",
-  description = "OnionCall gives you a direct, end-to-end encrypted line between two devices over the Tor network. Install the native desktop app (Linux & Windows) or open the web UI in any browser — it starts Tor for you and hands you a .onion address. No servers, no logs, no company watching.",
-  mockup = (
-    <div className="flex flex-col items-center justify-center gap-8 rounded-lg bg-gradient-to-br from-primary/10 via-background to-primary/5 p-8 sm:p-12">
-      <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
-        {/* Your screen — share */}
-        <div className="w-full max-w-[220px] rounded-xl border border-primary/20 bg-background/90 p-4 text-center shadow-xl shadow-primary/10">
-          <div className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-[11px] font-semibold text-primary">
-            <Lock className="size-3" />
-            Encrypted with password
-          </div>
-          <div className="relative mx-auto mb-3 flex size-28 items-center justify-center overflow-hidden rounded-lg border border-border bg-white p-1.5 sm:size-32">
-            <QrCode className="size-full text-neutral-900" strokeWidth={1} />
-            <span className="absolute inset-x-1.5 top-1/2 h-0.5 -translate-y-1/2 animate-pulse rounded-full bg-primary/70 shadow-[0_0_12px_2px] shadow-primary/40" />
-          </div>
-          <p className="text-xs font-medium text-muted-foreground">
-            Show this QR · say the password
-          </p>
-        </div>
-
-        <ArrowRightIcon className="size-5 shrink-0 rotate-90 text-muted-foreground sm:rotate-0" />
-
-        {/* Peer's screen — scan */}
-        <div className="w-full max-w-[220px] rounded-xl border border-emerald-500/25 bg-background/90 p-4 text-center shadow-xl shadow-emerald-500/5">
-          <div className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-3 py-1 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
-            <ShieldCheck className="size-3" />
-            Pairing complete
-          </div>
-          <div className="mx-auto mb-3 flex size-28 items-center justify-center rounded-lg border border-emerald-500/20 bg-emerald-500/5 sm:size-32">
-            <ShieldCheck className="size-10 text-emerald-500" strokeWidth={1.5} />
-          </div>
-          <p className="text-xs font-medium text-emerald-600 dark:text-emerald-400">
-            Paired · forward-secret E2EE
-          </p>
-        </div>
-      </div>
-      <div className="text-center text-sm font-medium text-muted-foreground">
-        One scan + one spoken password = fully paired, no servers involved
-      </div>
-    </div>
-  ),
+  description = "A direct, forward-secret encrypted line between two devices, routed through the Tor network. It manages Tor for you and hands you a .onion address — no servers, no accounts, no one in the middle.",
+  mockup = <TerminalDemo />,
   badge = DEFAULT_HERO_BADGE,
   latestVersion,
   release,
@@ -125,7 +86,9 @@ export default function Hero({
         className,
       )}
     >
-      <div className="max-w-container relative mx-auto flex flex-col items-center gap-12 pt-16 text-center sm:gap-14 sm:pt-20 lg:gap-16 lg:pt-24">
+      {/* Predictive-arc background: pixel dome + sweeping light + luminous core */}
+      <PredictiveArc className="opacity-80 [mask-image:linear-gradient(to_bottom,transparent_0%,black_26%,black_70%,transparent_100%)]" />
+      <div className="max-w-container relative z-10 mx-auto flex flex-col items-center gap-12 pt-16 text-center sm:gap-14 sm:pt-20 lg:gap-16 lg:pt-24">
         {/* Release pill + badge */}
         <div className="animate-appear relative z-10 flex flex-col items-center gap-4 opacity-0 delay-100">
           {release ? (
@@ -207,10 +170,6 @@ export default function Hero({
         {/* Product visual — single glow behind it */}
         {mockup !== false && (
           <div className="relative mx-auto mt-4 w-full max-w-2xl sm:mt-6">
-            <Glow
-              variant="center"
-              className="animate-appear-zoom opacity-0 delay-1000"
-            />
             <div className="animate-appear relative z-10 opacity-0 delay-700">
               <MockupFrame size="large">
                 <Mockup

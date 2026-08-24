@@ -15,13 +15,13 @@ interface StatsProps {
 const DEFAULT_STATS: StatItemProps[] = [
   {
     label: "encryption",
-    value: "XChaCha20",
-    description: "authenticated payloads",
+    value: "AEAD",
+    description: "XChaCha20-Poly1305 sealed",
   },
   {
     label: "secrecy",
     value: "PFS",
-    description: "fresh keys every call",
+    description: "fresh X25519 keys every call",
   },
   {
     label: "delivery",
@@ -47,7 +47,7 @@ export default function Stats({
             {items.map((item) => (
               <div
                 key={`${item.label}-${item.description}`}
-                className="flex flex-col items-start gap-3 text-left"
+                className="flex min-w-0 flex-col items-start gap-3 text-left"
               >
                 {item.label && (
                   <div className="text-muted-foreground text-sm font-semibold uppercase tracking-wider">
@@ -55,7 +55,7 @@ export default function Stats({
                   </div>
                 )}
                 <div className="flex items-baseline gap-2">
-                  <div className="from-foreground to-foreground dark:to-brand bg-linear-to-r bg-clip-text text-4xl font-medium text-transparent drop-shadow-[2px_1px_24px_var(--brand-foreground)] transition-all duration-300 sm:text-5xl md:text-6xl">
+                  <div className="from-foreground to-foreground dark:to-brand bg-linear-to-r bg-clip-text text-3xl font-medium break-words text-transparent sm:text-5xl md:text-6xl drop-shadow-[2px_1px_24px_var(--brand-foreground)] transition-all duration-300 sm:text-5xl md:text-6xl">
                     {item.value}
                   </div>
                   {item.suffix && (

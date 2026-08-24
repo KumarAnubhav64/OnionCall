@@ -151,3 +151,21 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Onion-route packet traveling between "you" and "peer" in the hero terminal. */
+@keyframes onion-packet {
+  0% {
+    left: 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    left: calc(100% - 8px);
+    opacity: 0;
+  }
+}

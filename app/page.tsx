@@ -3,7 +3,7 @@ import FAQ from "../components/sections/faq/default";
 import Footer from "../components/sections/footer/default";
 import Hero from "../components/sections/hero/default";
 import HowItWorks from "../components/sections/how-it-works/default";
-import Items from "../components/sections/items/default";
+import Bento from "../components/sections/bento/default";
 import Navbar from "../components/sections/navbar/default";
 import Stats from "../components/sections/stats/default";
 import { LayoutLines } from "../components/ui/layout-lines";
@@ -20,7 +20,7 @@ export default async function Home() {
       <Navbar />
       <Hero release={release} />
       <HowItWorks />
-      <Items />
+      <Bento />
       <Stats />
       <FAQ />
       <CTA />
